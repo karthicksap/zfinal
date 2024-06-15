@@ -1,0 +1,26 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="tit.mm.app.controller.View1">
+    <Page title="View 1">
+    	<headerContent>
+			<Button icon="sap-icon://action" press="onNext" />
+		</headerContent>
+        <subHeader>
+			<OverflowToolbar>
+				<SearchField liveChange="onSearch" />
+			</OverflowToolbar>
+		</subHeader>
+        <List items="{path: '/keyPlayers',
+                      sorter: {path: 'team'}}" id="idList" delete="onDelete"
+                      selectionChange="onSelectionChange" mode="SingleSelectMaster">
+            <ObjectListItem icon="{icon}" number="{price}" 
+            intro="{team}" numberUnit="{curreny}" title="{name}">
+                <firstStatus>
+                    <ObjectStatus text="{available}" state="{
+                                                             path: 'available', 
+                                                             formatter: '.oFormatter.getStatusText'
+                                                             }" />
+                </firstStatus>
+            </ObjectListItem>
+        </List>
+        <Button type="Ghost" text="Delete" icon="sap-icon://delete" press="onMultiDelete" />
+    </Page>
+</mvc:View>

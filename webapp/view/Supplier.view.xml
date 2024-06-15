@@ -1,0 +1,5 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="tit.mm.app.controller.Supplier">
+<Page showNavButton="true" navButtonPress="onBack">
+    <ObjectHeader icon="sap-icon://supplier" intro="{name}"></ObjectHeader>
+</Page>
+</mvc:View>

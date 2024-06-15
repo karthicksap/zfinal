@@ -1,0 +1,98 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  xmlns="sap.m" controllerName="tit.mm.app.controller.View2">
+  <Page title="View 2" showNavButton="true" navButtonPress="onBack">
+    <ObjectHeader icon="{icon}" number="{price}" intro="{team}" numberUnit="{curreny}" title="{name}">
+    </ObjectHeader>
+    <IconTabBar >
+      <items>
+        <IconTabFilter key="MI" icon="sap-icon://begin" text="More Info">
+          <f:SimpleForm id="idSimpleform" editable="false" layout="ResponsiveGridLayout" title="Detail display" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+            <f:content>
+              <Label text="Name" />
+              <Text id="nameText" text="{name}" />
+              <Label text="Team name" />
+              <Text text="{team}" />
+              <Label text="Price/Currency" />
+              <Text text="{price} {currency}" />
+              <Label text="Country" />
+              <Text id="countryText" text="{country}" />
+            </f:content>
+          </f:SimpleForm>
+        </IconTabFilter>
+        <IconTabFilter key="SU" icon="sap-icon://supplier" text="Cars">
+          <Table id="idTab" items="{
+                        path: '/cars'
+                        }" selectionChange="onselectionChange" mode="SingleSelectMaster">
+            <headerToolbar>
+              <OverflowToolbar>
+                <ToolbarSpacer />
+                <content>
+                  <Button press="onCarsFilter" icon="sap-icon://filter" />
+                </content>
+              </OverflowToolbar>
+            </headerToolbar>
+            <columns>
+              <Column>
+                <Label text="Name" />
+              </Column>
+              <Column>
+                <Label text="Price" />
+              </Column>
+              <Column demandPopin="true" minScreenWidth="Desktop">
+                <Label text="Since" />
+              </Column>
+              <Column>
+                <Label text="Rating" />
+              </Column>
+              <Column minScreenWidth="Desktop">
+                <Label text="Price" />
+              </Column>
+            </columns>
+            <ColumnListItem type="Navigation">
+              <Text text="{name}" />
+              <Text text="{price}" />
+              <Input value="{since}" showValueHelp="true" valueHelpRequest="onValueHelpRequest" />
+              <Text text="{rating}" />
+              <Text text="{price}" />
+            </ColumnListItem>
+          </Table>
+        </IconTabFilter>
+        <IconTabFilter key="CU" icon="sap-icon://home" text="Cities">
+          <ComboBox items="{
+					path: '/states',
+					sorter: { path: 'name' }
+				}" change="onSelect">
+            <core:Item key="{name}" text="{name}" />
+          </ComboBox>
+          <ComboBox id="idComp" items="{
+					path: '/cities',
+					sorter: { path: 'city' }
+				}">
+            <core:Item key="{city}" text="{city}" />
+          </ComboBox>
+          <Select items="{ 
+            path: '/cities',
+            sorter:{path: 'city'}
+           }">
+            <core:Item key="{city}" text="{city}" />
+          </Select>
+          <MultiComboBox items="{ 
+            path: '/cities',
+            sorter:{path: 'city'}
+           }">
+            <core:Item key="{city}" text="{city}" />
+          </MultiComboBox>
+        </IconTabFilter>
+      </items>
+    </IconTabBar>
+    <footer>
+      <OverflowToolbar>
+        <ToolbarSpacer/>
+        <Button text="Save" type="Accept" press="onSave" />
+        <Button text="Cancel" type="Reject" press="onCancel" />
+      </OverflowToolbar>
+    </footer>
+  </Page>
+</mvc:View>

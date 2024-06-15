@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script id="sap-ui-bootstrap" src="https://ui5.sap.com/resources/sap-ui-core.js" data-sap-ui-theme="sap_horizon"
+        data-sap-ui-bindingSyntax="complex" data-sap-ui-libs="sap.m" data-sap-ui-resourceroots='{
+                    "tit.mm.app": "./"
+                }'></script>
+    <script>
+        var oCompCon = new sap.ui.core.ComponentContainer({
+            name: "tit.mm.app"
+        });
+        oCompCon.placeAt("content");
+        // sap.ui.core.Component.create({
+        //     name: 'tit.mm.app',
+        //     manifestFirst: true,
+        //     async: true
+        // }).then(function (oComponent) {
+        //     console.log("Component created:", oComponent);
+        //     var oComponentContainer = new sap.ui.core.ComponentContainer({
+        //         component: oComponent
+        //     });
+        //     oComponentContainer.placeAt("content");
+        // }).catch(function (oError) {
+        //     console.error("Error during component creation:", oError);
+        // });        
+    </script>
+</head>
+
+<body id="content">
+
+</body>
+
+</html>

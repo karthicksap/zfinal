@@ -1,0 +1,104 @@
+{
+  "_version": "1.58.0",
+  "sap.app": {
+    "id": "tit.mm.app",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "type": "application",
+    "applicationVersion": {
+      "version": "1.0.0"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.108.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {}
+      }
+    },
+    "rootView": {
+      "id": "idAppView",
+      "viewName": "tit.mm.app.view.App",
+      "type": "XML"
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "async": true,
+        "viewPath": "tit.mm.app.view",
+        "controlId": "idAppCont",
+        "viewType": "XML"
+      },
+      "routes": [
+        {
+          "name": "start",
+          "pattern": "",
+          "target": [
+            "first",
+            "second"
+          ]
+        },
+        {
+          "name": "next",
+          "pattern": "myplayers/{sId}",
+          "target": [
+            "first",
+            "third"
+          ]
+        },
+        {
+          "name": "third",
+          "pattern": "cars/{sId}",
+          "target": [
+            "first",
+            "supp"
+          ]
+        }
+      ],
+      "targets": {
+        "first": {
+          "viewId": "idView1",
+          "viewName": "View1",
+          "controlAggregation": "masterPages"
+        },
+        "second": {
+          "viewId": "idAven2",
+          "viewName": "Aven",
+          "controlAggregation": "detailPages"
+        },
+        "third": {
+          "viewId": "idView2",
+          "viewName": "View2",
+          "controlAggregation": "detailPages"
+        },
+        "supp": {
+          "viewId": "idSupp2",
+          "viewName": "Supplier",
+          "controlAggregation": "detailPages"
+        }
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "i18n/i18n.properties"
+        }
+      },
+      "": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/sample.json"
+      }
+    }
+  }
+}
